@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { cardSetAtom } from "../../store/store";
 import { requestCards } from "../../services/cards";
 import { CardType } from "./types";
-import { Card } from "../../components/Card";
+import { Card } from "../../components/Card/Card";
 
 export const Cards = () => {
   const [cardSet] = useAtom(cardSetAtom);
@@ -21,8 +21,8 @@ export const Cards = () => {
   if (isError) return <h1>Error</h1>;
 
   return (
-    <div className="flex flex-col p-4 w-4/6 h-screen">
-      <h1 className="font-bold">{cardSet}</h1>
+    <div className="flex flex-col p-4 h-screen">
+      <h1 className="font-bold text-3xl pb-4 text-amber-600">{cardSet}</h1>
       <div className="flex flex-row flex-wrap overflow-y-auto p-2">
         {data &&
           data.map((card: CardType) => {

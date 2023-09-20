@@ -2,7 +2,10 @@
 module.exports = {
   content: ["src/**/*.{ts,tsx}", "index.html"],
   theme: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
+  fontFamily: {
+    serif: ["PT Serif", "serif"],
+  },
+  plugins: [],
 };

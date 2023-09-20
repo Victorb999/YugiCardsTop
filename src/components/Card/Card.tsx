@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CardType } from "../containers/Cards/types";
-
+import { CardFull } from '../CardFull/CardFull'
 interface CardProps {
   card: CardType;
 }
@@ -11,6 +11,7 @@ export const Card = ({ card }: CardProps) => {
   return (
     <div className="p-2 w-1/4">
       <img
+        className='cursor-pointer'
         src={img}
         alt={card.name}
         title={card.name}
@@ -19,8 +20,8 @@ export const Card = ({ card }: CardProps) => {
       {showFull && (
         <div
           className="h-screen w-screen flex-col
-            bg-gradient-to-l from-black flex items-center justify-center
-            absolute top-0 left-0 transition-opacity duration-700
+            bg-[#000000cc] flex items-center justify-center
+            absolute top-0 left-0 transition-opacity duration-700            
         "
         >
           <button
@@ -31,12 +32,16 @@ export const Card = ({ card }: CardProps) => {
           >
             X
           </button>
-          <img
-            src={img}
-            alt={card.name}
-            title={card.name}
-            onClick={() => setShowFull(true)}
-          />
+          <CardFull height="614px" width="421px" id={card.id}>
+            <>
+                <img
+                    src={img}
+                    alt={card.name}
+                    title={card.name}
+                    onClick={() => setShowFull(true)}
+                />
+            </>
+          </ CardFull>
         </div>
       )}
     </div>
