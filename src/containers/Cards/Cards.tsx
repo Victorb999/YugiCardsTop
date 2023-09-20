@@ -1,35 +1,34 @@
-
-import {
-  useQuery
-} from "react-query";
-import { useAtom } from 'jotai'
-import { cardSetAtom } from '../../store/store'
+import { useQuery } from "react-query";
+import { useAtom } from "jotai";
+import { cardSetAtom } from "../../store/store";
 import { requestCards } from "../../services/cards";
-import { Card } from "./types";
+import { CardType } from "./types";
+import { Card } from "../../components/Card";
 
 export const Cards = () => {
   const [cardSet] = useAtom(cardSetAtom);
   const { isError, isLoading, data } = useQuery(
-    ['setcards',cardSet],
+    ["setcards", cardSet],
     () => requestCards(cardSet),
     {
-      enabled: !!cardSet && cardSet !== '', // Habilita a consulta apenas se cardSet não for nulo ou indefinido
+      enabled: !!cardSet && cardSet !== "", // Habilita a consulta apenas se cardSet não for nulo ou indefinido
       refetchOnWindowFocus: false, // Impede que a consulta seja disparada quando a janela está em foco
       // Outras opções de consulta
-    }
+    },
   );
 
-  if (isLoading) return <h1>Loading...</h1>
-  if (isError) return <h1>Error</h1>
+  if (isLoading) return <h1>Loading...</h1>;
+  if (isError) return <h1>Error</h1>;
 
   return (
-          <div className="flex flex-col p-4 w-4/6"> 
-            <h1>{cardSet}</h1>
-            {data && data.map((card : Card) => {
-              return (
-                <p key={card.id}>{card.name}</p>
-              )
-            })}
-          </div>
-   )
-}
+    <div className="flex flex-col p-4 w-4/6 h-screen">
+      <h1 className="font-bold">{cardSet}</h1>
+      <div className="flex flex-row flex-wrap overflow-y-auto p-2">
+        {data &&
+          data.map((card: CardType) => {
+            return <Card key={card.id} card={card} />;
+          })}
+      </div>
+    </div>
+  );
+};
