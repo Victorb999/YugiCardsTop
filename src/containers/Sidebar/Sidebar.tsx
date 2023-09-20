@@ -19,7 +19,7 @@ export const Sidebar = () => {
 
   if (data) {
     return (
-      <div className="flex flex-col p-2 bg-[#450a0a] w-2/6 max-w-xs h-screen">
+      <div className="flex flex-col p-2 bg-[#450a0a] w-80 h-screen">
         <h1 className="font-bold text-3xl pb-4 text-amber-600">Cards sets</h1>
         <div className="flex flex-col overflow-y-auto p-2">
           {data.map((cardSet: SetCard, index: number) => {

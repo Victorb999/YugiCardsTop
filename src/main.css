@@ -28,3 +28,7 @@
 .flippy-back {
   padding: 0 !important;
 }
+
+.custom-width {
+  width: calc(100% - 320px);
+}
