@@ -59,7 +59,7 @@ export function CardFull({ width, height, children, id }: Props) {
             >
               <img
                 src="https://gglounge.pt/wp-content/uploads/2022/12/Yu-Gi-Oh-Card-Back-Sleeves-Japanese-Size.jpeg"
-                alt="gym"
+                alt="Card"
               />
             </div>
           </CardAnimated>
