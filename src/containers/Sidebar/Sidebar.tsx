@@ -12,28 +12,29 @@ export interface SetCard {
 }
 
 export const Sidebar = () => {
-  const [cardSet, setCardSet] = useAtom(cardSetAtom);
+  const [, setCardSet] = useAtom(cardSetAtom);
   const { isError, isLoading, data } = useQuery("setsetcards", requestSetCards);
   if (isLoading) return <h1>Loading...</h1>;
   if (isError) return <h1>Erro</h1>;
 
   if (data) {
     return (
-      <div className="flex flex-col p-2 bg-[#450a0a] w-80 h-screen">
-        <h1 className="font-bold text-3xl pb-4 text-amber-600">Cards sets</h1>
-        <div className="flex flex-col overflow-y-auto p-2">
+      <div className="flex flex-col p-2 bg-black w-96 h-screen">
+        <h1 className="font-bold text-3xl pb-4 text-white">Cards sets</h1>
+        <ul className="flex flex-col overflow-y-auto p-2">
           {data.map((cardSet: SetCard, index: number) => {
             return (
-              <span
-                className="pt-2 cursor-pointer hover:text-red-500"
+              <li
+                className="p-1 cursor-pointer hover:text-red-500 
+                rounded bg-red-900 m-1 hover:bg-[#121212] duration-700"
                 onClick={() => setCardSet(cardSet.set_name)}
                 key={cardSet.set_code + index}
               >
-                {cardSet.set_name}
-              </span>
+                ⚫ {cardSet.set_name}
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     );
   }
