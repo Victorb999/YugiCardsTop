@@ -19,14 +19,17 @@ export const Sidebar = () => {
 
   if (data) {
     return (
-      <div className="flex flex-col p-2 bg-black w-96 h-screen">
-        <h1 className="font-bold text-3xl pb-4 text-white">Cards sets</h1>
+      <div className="flex flex-col pb-8 p-2 glass w-96 h-[80vh] rounded m-4">
+        <h1 className="font-bold text-3xl pb-4 ml-4 text-white">Cards sets</h1>
         <ul className="flex flex-col overflow-y-auto p-2">
           {data.map((cardSet: SetCard, index: number) => {
             return (
               <li
-                className="p-1 cursor-pointer hover:text-red-500 
-                rounded bg-red-900 m-1 hover:bg-[#121212] duration-700"
+                className="p-1 cursor-pointer  m-1 duration-700 rounded 
+                text-black hover:text-gray-700
+                bg-gradient-to-r from-rose-500 via-red-500 to-amber-500
+                hover:bg-gradient-to-r hover:from-amber-500 hover:via-red-500 hover:to-rose-500
+                "
                 onClick={() => setCardSet(cardSet.set_name)}
                 key={cardSet.set_code + index}
               >
