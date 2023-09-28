@@ -13,8 +13,15 @@ export const requestSetCards = async () => {
   }
 };
 
-export const requestCards = async (filter: string) => {
-  const option = `?cardset=${filter}`;
+export interface Filter {
+  cardset?: string;
+  fname?: string;
+}
+
+export const requestCards = async (filter: Filter) => {
+  const filterCardSet = filter.cardset ? `cardset=${filter.cardset ?? ""}` : "";
+  const filterFname = filter.fname ? `fname=${filter.fname ?? ""}` : "";
+  const option = `?${filterCardSet}&${filterFname}`;
   try {
     const response = await axios.get(
       `https://db.ygoprodeck.com/api/v7/cardinfo.php${option}`,
@@ -22,7 +29,6 @@ export const requestCards = async (filter: string) => {
     console.log(response.data.data);
     return response.data.data;
   } catch (error) {
-    console.error(error);
-    return null;
+    throw error;
   }
 };

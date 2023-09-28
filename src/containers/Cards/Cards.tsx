@@ -1,24 +1,43 @@
 import { useQuery } from "react-query";
 import { useAtom } from "jotai";
-import { cardSetAtom } from "../../store/store";
+import { cardSetAtom, cardFnameAtom } from "../../store/store";
 import { requestCards } from "../../services/cards";
 import { CardType } from "./types";
 import { Card } from "../../components/Card/Card";
 
 export const Cards = () => {
   const [cardSet] = useAtom(cardSetAtom);
+  const [cardFname] = useAtom(cardFnameAtom);
+  const filter = {
+    cardset: cardSet,
+    fname: cardFname,
+  };
+
   const { isError, isLoading, data } = useQuery(
-    ["setcards", cardSet],
-    () => requestCards(cardSet),
+    ["setcards", cardSet, cardFname],
+    () => requestCards(filter),
     {
-      enabled: !!cardSet && cardSet !== "", // Habilita a consulta apenas se cardSet não for nulo ou indefinido
+      enabled: cardSet !== "" || cardFname !== "", // Habilita a consulta apenas se cardSet não for nulo ou indefinido
       refetchOnWindowFocus: false, // Impede que a consulta seja disparada quando a janela está em foco
       // Outras opções de consulta
     },
   );
 
-  if (isLoading) return <h1>Loading...</h1>;
-  if (isError) return <h1>Error</h1>;
+  if (isLoading)
+    return (
+      <div className="flex flex-col p-4 custom-width align-center">
+        <h1>Loading ...</h1>
+      </div>
+    );
+
+  if (isError)
+    return (
+      <div className="flex flex-col p-4 custom-width align-center">
+        <h1>Card not found =[</h1>
+      </div>
+    );
+
+  console.log(isError, data);
 
   return (
     <div className="flex flex-col p-4 custom-width h-screen">

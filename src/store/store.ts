@@ -1,3 +1,4 @@
-import { atom } from 'jotai';
+import { atom } from "jotai";
 
-export const cardSetAtom = atom('')
+export const cardSetAtom = atom("");
+export const cardFnameAtom = atom("");

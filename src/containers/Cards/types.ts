@@ -42,3 +42,8 @@ export interface CardPrice {
 export interface BanlistInfo {
   ban_tcg: string;
 }
+
+export interface Filter {
+  cardset?: string;
+  fname?: string;
+}
