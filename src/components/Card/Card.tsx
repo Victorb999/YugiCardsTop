@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CardType } from "../containers/Cards/types";
-import { CardFull } from '../CardFull/CardFull'
+import { CardFull } from "../CardFull/CardFull";
 interface CardProps {
   card: CardType;
 }
@@ -11,7 +11,7 @@ export const Card = ({ card }: CardProps) => {
   return (
     <div className="p-2 w-1/4">
       <img
-        className='cursor-pointer'
+        className="cursor-pointer"
         src={img}
         alt={card.name}
         title={card.name}
@@ -34,14 +34,14 @@ export const Card = ({ card }: CardProps) => {
           </button>
           <CardFull height="614px" width="421px" id={card.id}>
             <>
-                <img
-                    src={img}
-                    alt={card.name}
-                    title={card.name}
-                    onClick={() => setShowFull(true)}
-                />
+              <img
+                src={img}
+                alt={card.name}
+                title={card.name}
+                onClick={() => setShowFull(true)}
+              />
             </>
-          </ CardFull>
+          </CardFull>
         </div>
       )}
     </div>

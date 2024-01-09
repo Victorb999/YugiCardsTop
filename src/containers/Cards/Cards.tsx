@@ -37,10 +37,8 @@ export const Cards = () => {
       </div>
     );
 
-  console.log(isError, data);
-
   return (
-    <div className="flex flex-col p-4 custom-width h-screen">
+    <div className="flex flex-col p-4 custom-width h-[80dvh] bg-[#060606] rounded m-4">
       <h1 className="font-bold text-3xl pb-4 text-white">{cardSet}</h1>
       <div className="flex flex-row flex-wrap overflow-y-auto p-2">
         {data ? (

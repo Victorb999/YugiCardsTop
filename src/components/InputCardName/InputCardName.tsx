@@ -7,6 +7,8 @@ export const InputCardName = () => {
   const changeFname = (fname: string) => {
     if (fname.length > 3) {
       setCardFname(fname);
+    } else {
+      setCardFname("");
     }
   };
   return (
