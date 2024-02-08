@@ -18,7 +18,7 @@ export const Sidebar = () => {
 
   if (data) {
     return (
-      <div className="flex flex-col pb-8 p-4 bg-[#060606] w-96 h-[80dvh] rounded m-4">
+      <div className="flex flex-col pb-8 p-4 bg-[#060606] sm:w-64 custom-width sm:h-[80dvh] h-fit rounded m-4">
         <h1 className="font-bold text-3xl pb-4 ml-4 text-white">Cards sets</h1>
         <SelectCardSet cardSets={data} />
         <InputCardName />

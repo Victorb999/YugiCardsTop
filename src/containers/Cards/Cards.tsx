@@ -38,7 +38,10 @@ export const Cards = () => {
     );
 
   return (
-    <div className="flex flex-col p-4 custom-width h-[80dvh] bg-[#060606] rounded m-4">
+    <div
+      className="flex flex-col p-4 custom-width sm:h-[80dvh] h-fit w-full
+     bg-[#060606] rounded m-4"
+    >
       <h1 className="font-bold text-3xl pb-4 text-white">{cardSet}</h1>
       <div className="flex flex-row flex-wrap overflow-y-auto p-2">
         {data ? (
@@ -51,7 +54,8 @@ export const Cards = () => {
               Search for Yu-gi-oh cards ...
             </h1>
             <img
-              width={"400px"}
+              height={"400px"}
+              width={"200px"}
               src="https://gglounge.pt/wp-content/uploads/2022/12/Yu-Gi-Oh-Card-Back-Sleeves-Japanese-Size.jpeg"
               alt="Card"
             />

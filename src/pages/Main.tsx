@@ -8,7 +8,7 @@ export const Main = () => {
         YugiTop
         <span className="text-amber-500">.</span>
       </h1>
-      <div className="flex">
+      <div className="flex sm:flex-row flex-col w-full">
         <Sidebar />
         <Cards />
       </div>
