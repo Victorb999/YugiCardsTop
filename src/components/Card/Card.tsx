@@ -19,19 +19,23 @@ export const Card = ({ card }: CardProps) => {
       />
       {showFull && (
         <div
-          className="h-screen w-screen flex-col
-            bg-[#000000cc] flex items-center justify-center
-            absolute top-0 left-0 transition-opacity duration-700            
-        "
+          className="h-screen w-screen flex-col flex items-center justify-center
+        absolute top-0 left-0"
         >
-          <button
-            className="text-xl px-2 m-2 bg-red-700 
-            ml-[20%]
-            rounded-full text-gray-100 hover:bg-gray-500 "
+          <div
+            className="h-screen w-screen bg-[#000000cc] 
+            absolute top-0 left-0 transition-opacity duration-700 ease-in-out"
             onClick={() => setShowFull(false)}
           >
-            X
-          </button>
+            <button
+              className="text-xl px-2 m-2 bg-red-700 
+            absolute top-2 right-2
+            rounded-full text-gray-100 hover:bg-gray-500 "
+              onClick={() => setShowFull(false)}
+            >
+              X
+            </button>
+          </div>
           <CardFull height="614px" width="421px" id={card.id}>
             <>
               <img

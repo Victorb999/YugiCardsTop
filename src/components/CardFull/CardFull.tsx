@@ -15,7 +15,7 @@ export function CardFull({ width, height, children, id }: Props) {
   const ref = useRef<any>(null);
 
   return (
-    <>
+    <div className="z-50">
       <Flippy
         flipOnHover={false} // default false
         flipOnClick={true} // default false
@@ -65,6 +65,6 @@ export function CardFull({ width, height, children, id }: Props) {
           </CardAnimated>
         </BackSide>
       </Flippy>
-    </>
+    </div>
   );
 }
