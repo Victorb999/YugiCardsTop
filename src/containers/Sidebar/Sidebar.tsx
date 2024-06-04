@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { requestSetCards } from "../../services/cards";
 import { SelectCardSet } from "../../components/SelectCardSet/SelectCardSet";
 import { InputCardName } from "../../components/InputCardName/InputCardName";
+import { InputLevel } from "../../components/InputLevel/InputLevel";
 
 export interface SetCard {
   set_name: string;
@@ -22,6 +23,7 @@ export const Sidebar = () => {
         <h1 className="font-bold text-3xl pb-4 ml-4 text-white">Cards sets</h1>
         <SelectCardSet cardSets={data} />
         <InputCardName />
+        <InputLevel />
       </div>
     );
   }

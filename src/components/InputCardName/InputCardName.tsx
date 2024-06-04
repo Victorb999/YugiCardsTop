@@ -1,14 +1,14 @@
 import { useAtom } from "jotai";
-import { cardFnameAtom } from "../../store/store";
+import { cardFilterAtom } from "../../store/store";
 
 export const InputCardName = () => {
-  const [, setCardFname] = useAtom(cardFnameAtom);
+  const [cardFilter, setCardFilter] = useAtom(cardFilterAtom);
 
   const changeFname = (fname: string) => {
     if (fname.length > 3) {
-      setCardFname(fname);
+      setCardFilter({ ...cardFilter, fname: fname });
     } else {
-      setCardFname("");
+      setCardFilter({ ...cardFilter, fname: "" });
     }
   };
   return (

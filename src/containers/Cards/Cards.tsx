@@ -1,23 +1,24 @@
 import { useQuery } from "react-query";
 import { useAtom } from "jotai";
-import { cardSetAtom, cardFnameAtom } from "../../store/store";
+import { cardSetAtom, cardFilterAtom } from "../../store/store";
 import { requestCards } from "../../services/cards";
 import { CardType } from "./types";
 import { Card } from "../../components/Card/Card";
 
 export const Cards = () => {
   const [cardSet] = useAtom(cardSetAtom);
-  const [cardFname] = useAtom(cardFnameAtom);
+  const [cardFilter] = useAtom(cardFilterAtom);
   const filter = {
     cardset: cardSet,
-    fname: cardFname,
+    fname: cardFilter.fname,
+    level: cardFilter.level,
   };
 
   const { isError, isLoading, data } = useQuery(
-    ["setcards", cardSet, cardFname],
+    ["setcards", cardSet, cardFilter],
     () => requestCards(filter),
     {
-      enabled: cardSet !== "" || cardFname !== "", // Habilita a consulta apenas se cardSet não for nulo ou indefinido
+      enabled: cardSet !== "" || cardFilter.fname !== "", // Habilita a consulta apenas se cardSet não for nulo ou indefinido
       refetchOnWindowFocus: false, // Impede que a consulta seja disparada quando a janela está em foco
       // Outras opções de consulta
     },
