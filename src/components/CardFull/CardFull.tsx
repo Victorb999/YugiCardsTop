@@ -1,18 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
 // @ts-ignore
-import Flippy, { FrontSide, BackSide } from "react-flippy";
+import Flippy, { FrontSide, BackSide } from "react-flippy"
 // @ts-ignore
-import CardAnimated from "react-animated-3d-card";
+import CardAnimated from "react-animated-3d-card"
 
 interface Props {
-  width: string;
-  height: string;
-  children: React.ReactNode;
-  id: string;
+  width: string
+  height: string
+  children: React.ReactNode
+  id: number
 }
 
 export function CardFull({ width, height, children, id }: Props) {
-  const ref = useRef<any>(null);
+  const ref = useRef<any>(null)
 
   return (
     <div className="z-50">
@@ -35,7 +35,7 @@ export function CardFull({ width, height, children, id }: Props) {
             }}
             borderRadius="5px"
           >
-            <div className="" id={id}>
+            <div className="" id={id.toString()}>
               <div className="">{children}</div>
             </div>
           </CardAnimated>
@@ -66,5 +66,5 @@ export function CardFull({ width, height, children, id }: Props) {
         </BackSide>
       </Flippy>
     </div>
-  );
+  )
 }

@@ -4,8 +4,14 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      serif: ["PT Serif", "serif"],
+      serif: ["Lekton", "monospace"],  
     },
+    fontWeight: {
+      normal: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+    },    
   },
   plugins: [],
 };

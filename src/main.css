@@ -32,3 +32,16 @@
 .custom-width {
   width: calc(100% - 2rem);
 }
+
+.custom-background {
+/*   background: linear-gradient(90deg, #000 0%, #000 100%);
+  background: url("/src/img/wintery-sunburst.svg") no-repeat center center fixed;
+  background-size: cover; */
+  background: rgb(32,140,153);
+background: radial-gradient(circle, rgba(32,140,153,1) 0%, rgba(20,59,96,1) 17%, rgba(8,15,38,1) 36%, rgba(5,2,1,1) 57%, rgba(6,6,6,1) 100%);
+}
+
+.custom-background-2 {
+  background-color: linear-gradient(135deg, rgb(41, 41, 41) 0%, rgb(0,0,0) 100%);
+  background: url("/src/img/grit.png") repeat;
+}

@@ -1,21 +1,29 @@
-import { useState } from "react";
-import { CardType } from "../containers/Cards/types";
-import { CardFull } from "../CardFull/CardFull";
+import { useState } from "react"
+import { CardType } from "../../containers/Cards/types"
+import { useAtom } from "jotai"
+import { CardFull } from "../CardFull/CardFull"
+import { SelectedCardAtom } from "../../store/store"
 interface CardProps {
-  card: CardType;
+  card: CardType
 }
 
 export const Card = ({ card }: CardProps) => {
-  const [showFull, setShowFull] = useState(false);
-  const img = card.card_images[0].image_url;
+  const [showFull, setShowFull] = useState(false)
+  const [selectedCard, setSelectedCard] = useAtom(SelectedCardAtom)
+  const img = card.card_images[0].image_url
+
+  const borderSelected =
+    card.id === selectedCard.id ? "border-2 border-rose-500" : ""
+
   return (
-    <div className="p-2 w-1/4">
+    <div className={`p-2 w-[190px] ${borderSelected}`}>
       <img
         className="cursor-pointer"
         src={img}
         alt={card.name}
         title={card.name}
-        onClick={() => setShowFull(true)}
+        onDoubleClick={() => setShowFull(true)}
+        onClick={() => setSelectedCard(card)}
       />
       {showFull && (
         <div
@@ -49,5 +57,5 @@ export const Card = ({ card }: CardProps) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}

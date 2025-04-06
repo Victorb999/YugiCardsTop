@@ -1,24 +1,27 @@
-import { useAtom } from "jotai";
-import { cardSetAtom } from "../../store/store";
+import { useAtom } from "jotai"
+import { cardSetAtom } from "../../store/store"
 
 export interface SetCard {
-  set_name: string;
-  set_code: string;
-  num_of_cards: number;
-  tcg_date?: string;
-  set_image?: string;
+  set_name: string
+  set_code: string
+  num_of_cards: number
+  tcg_date?: string
+  set_image?: string
 }
 
 interface CardSetProps {
-  cardSets: SetCard[];
+  cardSets: SetCard[]
 }
 
 export const SelectCardSet = ({ cardSets }: CardSetProps) => {
-  const [, setCardSet] = useAtom(cardSetAtom);
+  const [, setCardSet] = useAtom(cardSetAtom)
   return (
     <select
-      className="p-2 rounded text-black hover:text-gray-700 
-          bg-gradient-to-r from-rose-500 via-red-500 to-amber-500"
+      className="p-2 rounded text-gray-200 hover:text-gray-700 
+      custom-background-2
+      border-b border-gray-700 focus:outline-none focus:border-gray-700
+      w-full
+         "
       onChange={(e) => setCardSet(e.target.value)}
       defaultValue=""
     >
@@ -34,8 +37,8 @@ export const SelectCardSet = ({ cardSets }: CardSetProps) => {
           >
             ⚫ {cardSet.set_name}
           </option>
-        );
+        )
       })}
     </select>
-  );
-};
+  )
+}
