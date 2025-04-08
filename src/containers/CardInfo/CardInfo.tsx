@@ -3,8 +3,13 @@ import { SelectedCardAtom } from "../../store/store"
 
 export const CardInfo = () => {
   const [selectedCard] = useAtom(SelectedCardAtom)
+
+  if (!selectedCard) {
+    return <></>
+  }
+
   return (
-    <div className="flex flex-col pb-8 p-4  custom-background-2 sm:w-64 custom-width sm:h-[80dvh] h-fit ">
+    <div className="flex flex-col pb-8 p-4 custom-background-2 sm:w-64 sm:h-[80dvh] h-fit ">
       {selectedCard && (
         <div className="flex flex-col items-start justify-center w-full gap-4">
           <p className="font-bold text-md text-white">{selectedCard.id}</p>

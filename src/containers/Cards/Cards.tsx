@@ -1,6 +1,10 @@
 import { useQuery } from "react-query"
 import { useAtom } from "jotai"
-import { cardSetAtom, cardFilterAtom } from "../../store/store"
+import {
+  cardSetAtom,
+  cardFilterAtom,
+  SelectedCardAtom,
+} from "../../store/store"
 import { requestCards } from "../../services/cards"
 import { CardType } from "./types"
 import { Card } from "../../components/Card/Card"
@@ -13,6 +17,7 @@ export const Cards = () => {
     fname: cardFilter.fname,
     level: cardFilter.level,
   }
+  const [, setSelectedCard] = useAtom(SelectedCardAtom)
 
   const { isError, isLoading, data } = useQuery(
     ["setcards", cardSet, cardFilter],
@@ -20,6 +25,9 @@ export const Cards = () => {
     {
       enabled: cardSet !== "" || cardFilter.fname !== "", // Habilita a consulta apenas se cardSet não for nulo ou indefinido
       refetchOnWindowFocus: false, // Impede que a consulta seja disparada quando a janela está em foco
+      onSuccess: () => {
+        setSelectedCard({} as CardType) // Limpa o card selecionado quando a consulta é bem-sucedida
+      },
       // Outras opções de consulta
     }
   )
@@ -42,9 +50,11 @@ export const Cards = () => {
     <div
       className="flex flex-col 
       items-center
-      justify-center p-4 custom-width sm:h-[80dvh] h-fit w-full"
+      justify-center p-4  sm:h-[80dvh] h-[50dvh] w-full"
     >
-      <h1 className="font-bold text-3xl pb-4 text-white">{cardSet}</h1>
+      <h1 className="font-bold sm:text-3xl text-xl pb-4 text-white">
+        {cardSet}
+      </h1>
       <div
         className="flex flex-row flex-wrap overflow-y-auto p-2 items-center
       justify-center"
@@ -55,12 +65,12 @@ export const Cards = () => {
           })
         ) : (
           <div className="flex flex-col items-center justify-center w-full">
-            <h1 className="font-bold text-3xl pb-4 text-white">
+            <h1 className="font-bold sm:text-3xl text-xl pb-4 text-white">
               Search for Yu-gi-oh cards ...
             </h1>
             <img
-              height={"400px"}
-              width={"200px"}
+              height={window.innerWidth > 640 ? "400px" : "200px"}
+              width={window.innerWidth > 640 ? "200px" : "100px"}
               src="https://gglounge.pt/wp-content/uploads/2022/12/Yu-Gi-Oh-Card-Back-Sleeves-Japanese-Size.jpeg"
               alt="Card"
             />

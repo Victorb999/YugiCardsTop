@@ -15,16 +15,30 @@ export const Card = ({ card }: CardProps) => {
   const borderSelected =
     card.id === selectedCard.id ? "border-2 border-rose-500" : ""
 
+  const heightCard = window.innerWidth > 640 ? "614px" : "307px"
+  const widthCard = window.innerWidth > 640 ? "421px" : "206px"
+
   return (
-    <div className={`p-2 w-[190px] ${borderSelected}`}>
+    <div className={`sm:p-2 sm:w-[190px] w-[80px] ${borderSelected}`}>
       <img
         className="cursor-pointer"
         src={img}
         alt={card.name}
         title={card.name}
         onDoubleClick={() => setShowFull(true)}
+        onDoubleClickCapture={() => setShowFull(true)}
         onClick={() => setSelectedCard(card)}
       />
+      <div className="flex sm:hidden flex-row justify-between items-center">
+        <button
+          className="text-sm px-2 m-2 bg-amber-500
+            rounded-full text-gray-100 hover:bg-gray-500
+            "
+          onClick={() => setShowFull(true)}
+        >
+          Ampliar
+        </button>
+      </div>
       {showFull && (
         <div
           className="h-screen w-screen flex-col flex items-center justify-center
@@ -44,7 +58,7 @@ export const Card = ({ card }: CardProps) => {
               X
             </button>
           </div>
-          <CardFull height="614px" width="421px" id={card.id}>
+          <CardFull height={heightCard} width={widthCard} id={card.id}>
             <>
               <img
                 src={img}

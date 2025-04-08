@@ -13,7 +13,9 @@ export const InputLevel = () => {
   }
   return (
     <>
-      <h1 className="font-bold text-3xl pb-4 mt-2 text-white">Level</h1>
+      <h1 className="font-bold sm:text-3xl text-xl pb-4 mt-2  text-[#c99944]">
+        Level
+      </h1>
       <input
         type="number"
         className="p-2 rounded text-gray-200 hover:text-gray-700 
