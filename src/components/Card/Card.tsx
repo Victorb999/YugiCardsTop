@@ -13,7 +13,9 @@ export const Card = ({ card }: CardProps) => {
   const img = card.card_images[0].image_url
 
   const borderSelected =
-    card.id === selectedCard.id ? "border-2 border-rose-500" : ""
+    card.id === selectedCard.id
+      ? "border border-[#c99944] rounded bg-[#00000066]"
+      : ""
 
   const heightCard = window.innerWidth > 640 ? "614px" : "307px"
   const widthCard = window.innerWidth > 640 ? "421px" : "206px"

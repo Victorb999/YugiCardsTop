@@ -13,7 +13,7 @@ export const InputLevel = () => {
   }
   return (
     <>
-      <h1 className="font-bold sm:text-3xl text-xl pb-4 mt-2  text-[#c99944]">
+      <h1 className="font-bold sm:text-lg text-md mt-2  text-[#c99944]">
         Level
       </h1>
       <input

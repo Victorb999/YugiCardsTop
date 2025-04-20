@@ -17,7 +17,7 @@ export const SelectCardSet = ({ cardSets }: CardSetProps) => {
   const [, setCardSet] = useAtom(cardSetAtom)
   return (
     <select
-      className="p-2 rounded text-gray-200 hover:text-gray-700 
+      className="p-2 rounded text-gray-300 hover:text-gray-700 
       custom-background-2
       border-b border-gray-700 focus:outline-none focus:border-gray-700
       w-full

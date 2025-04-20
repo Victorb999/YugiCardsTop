@@ -21,11 +21,11 @@ export const Sidebar = () => {
     return (
       <div
         className="
-        flex flex-col pb-8 p-4 custom-background-2 
-        sm:w-[20dvw] sm:h-[90dvh] h-fit
+        flex flex-col pb-8 p-4 border-r border-[#c99944]  
+        sm:w-[20dvw] sm:h-[100dvh] h-fit
       "
       >
-        <h1 className="font-bold sm:text-3xl text-xl pb-4 text-[#c99944]">
+        <h1 className="font-bold sm:text-lg text-md  text-[#c99944]">
           Cards sets
         </h1>
         <div className="pb-4 border-b border-[#c99944]">
